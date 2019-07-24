@@ -14,7 +14,11 @@ app
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(cors())
+  .use(
+    cors({
+      'Access-Control-Allow-Origin': '*',
+    }),
+  )
 
 router.post('/api/:data', ctx => {
   /**
