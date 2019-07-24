@@ -11,14 +11,10 @@ const router = new Router()
 const server = http.createServer(app.callback())
 
 app
-  .use(bodyParser())
+  .use(cors())
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(
-    cors({
-      'Access-Control-Allow-Origin': '*',
-    }),
-  )
+  .use(bodyParser())
 
 router.post('/api/:data', ctx => {
   /**
