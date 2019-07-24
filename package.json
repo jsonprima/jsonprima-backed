@@ -2,5 +2,25 @@
   "name": "jsonprima-backed",
   "version": "0.1.0",
   "description": "Back-end services for jsonprima website",
-  "main": "index.js"
+  "main": "index.js",
+  "scripts": {
+    "cm": "git-cz"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }  
+  }
 }
