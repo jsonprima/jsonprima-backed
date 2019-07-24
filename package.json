@@ -4,14 +4,21 @@
   "description": "Back-end services for jsonprima website",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d build",
+    "start": "nodemon --exec babel-node src/server.js",
     "cm": "git-cz"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "husky": "^3.0.1"
+    "husky": "^3.0.1",
+    "nodemon": "^1.19.1"
   },
   "config": {
     "commitizen": {
@@ -21,6 +28,6 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }  
+    }
   }
 }

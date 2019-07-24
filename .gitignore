@@ -1,3 +1,6 @@
+# Build
+build
+
 # Dependencies from Node.js dev pipeline
 node_modules
 
