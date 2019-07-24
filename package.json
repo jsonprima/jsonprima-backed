@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d build && copyfiles -f \"src/jsonprima/jsonprima\" build/jsonprima ",
-    "start": "nodemon --exec babel-node src/server.js",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "start": "node build/server.js",
     "cm": "git-cz"
   },
   "devDependencies": {
