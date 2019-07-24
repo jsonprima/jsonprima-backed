@@ -4,7 +4,7 @@
   "description": "Back-end services for jsonprima website",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d build",
+    "build": "babel src -d build && copyfiles -f \"src/jsonprima/jsonprima\" build/jsonprima ",
     "start": "nodemon --exec babel-node src/server.js",
     "cm": "git-cz"
   },
@@ -16,6 +16,7 @@
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "commitizen": "^4.0.3",
+    "copyfiles": "^2.1.1",
     "cz-conventional-changelog": "^3.0.2",
     "husky": "^3.0.1",
     "nodemon": "^1.19.1"
@@ -29,5 +30,10 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
   }
 }
