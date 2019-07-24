@@ -4,6 +4,7 @@ import Router from 'koa-router'
 import http from 'http'
 import { spawnSync } from 'child_process'
 import path from 'path'
+import cors from '@koa/cors'
 
 const app = new koa()
 const router = new Router()
@@ -13,8 +14,9 @@ app
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
+  .use(cors())
 
-router.get('/api/:data', ctx => {
+router.post('/api/:data', ctx => {
   /**
    * Validate the JSON document from :data with jsonprima binary.
    */
