@@ -12,17 +12,19 @@ const server = http.createServer(app.callback())
 
 app
   .use(cors())
+  .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(bodyParser())
 
-router.post('/api/:data', ctx => {
+router.post('/api', ctx => {
+  const jsonDocument = ctx.request.body.code
+
   /**
    * Validate the JSON document from :data with jsonprima binary.
    */
   let { stdout } = spawnSync(
     path.join(__dirname, 'jsonprima', 'jsonprima'),
-    ['-i', ctx.params.data],
+    ['-i', jsonDocument],
     { encoding: 'utf-8' },
   )
 
